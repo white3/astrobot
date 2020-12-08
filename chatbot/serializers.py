@@ -5,7 +5,6 @@ from .models import Question
 class DynamicFieldsModelSerializer(serializers.ModelSerializer):
     def __init__(self, *args, **kwargs):
         fields = kwargs.pop('fields', None) # 提取fields
-		
 		# 实例化父类
         super(DynamicFieldsModelSerializer, self).__init__(*args, **kwargs)
 
@@ -25,3 +24,7 @@ class Sence3Serializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Question
         fields = "__all__" # 这里可以写全部，在外面传fields修改
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
